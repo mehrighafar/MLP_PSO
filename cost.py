@@ -13,5 +13,5 @@ def cost(*args, **kwargs):
     clf.fit(config.train_data_cost, config.train_data_cost_label)
     output = clf.predict(config.test_data_cost)
     err = 1 - accuracy_score(config.test_data_cost_label, output)
-    config.model[args[1]] = clf
+    config.model[(args[0][0], args[0][1])] = clf
     return err
